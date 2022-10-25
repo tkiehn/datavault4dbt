@@ -18,7 +18,7 @@
 ### Features
 With datavault4dbt you will get a lot of awesome features, including:
 - A Data Vault 2.0 implementation congruent to the original Data Vault 2.0 definition by Dan Linstedt
-- Ready for both Persistent Staging Areas and Transient Staging Areas, due to the allowance of multiple deltas in all macros, without loosing any intermediate changes- Enforcing standards in naming conventions by implementing [global variables](Global-variables.md) for technical columns    
+- Ready for both Persistent Staging Areas and Transient Staging Areas, due to the allowance of multiple deltas in all macros, without loosing any intermediate changes- Enforcing standards in naming conventions by implementing [global variables](https://github.com/ScalefreeCOM/datavault4dbt/wiki/Global-variables) for technical columns    
 - A fully auditable solution for a Data Warehouse
 - Creating a centralized, snapshot-based Business interface by using a centralized snapshot table supporting logarithmic logic
 - A modern insert-only approach that avoids updating data
@@ -62,12 +62,11 @@ We are working continuously at high pressure to adapt the package for large vari
 ---
 
 
-## Installation
-Datavault4dbt is not yet listed on dbt Hub, but we are working hard to get it there. Until then, you can still experience datavault4dbt by installing via Git. Just add the following lines to your packages.yml: 
+## Installation instructions
 
-      packages:
-        - git: "https://github.com/ScalefreeCOM/datavault4dbt.git"
-          revision: 1.0.0
+1. Include this package in your `packages.yml` -- check [here](https://hub.getdbt.com/scalefreecom/datavault4dbt/latest/)
+for installation instructions.
+2. Run `dbt deps`
 
 For further information on how to install packages in dbt, please visit the following link: 
 [https://docs.getdbt.com/docs/building-a-dbt-project/package-management](https://docs.getdbt.com/docs/building-a-dbt-project/package-management#how-do-i-add-a-package-to-my-project)
