@@ -146,7 +146,7 @@
 
 {%- if ghost_record_type == 'unknown' -%}
      {%- if datatype in ['TIMESTAMP_NTZ','TIMESTAMP'] %}{{ datavault4dbt.string_to_timestamp(timestamp_format, beginning_of_all_times) }} AS {{ alias }}
-     {%- elif datatype in ['STRING', 'VARCHAR'] %}'{{ unknown_value__STRING }}' AS {{ alias }}
+     {%- elif datatype in ['STRING', 'VARCHAR', 'TEXT'] %}'{{ unknown_value__STRING }}' AS {{ alias }}
      {%- elif datatype == 'CHAR' %}CAST('{{ unknown_value_alt__STRING }}' as {{ datatype }} ) as "{{ alias }}"
      {%- elif datatype.upper().startswith('VARCHAR(') or datatype.upper().startswith('CHAR(') -%}
             {%- if col_size is not none -%}
@@ -171,7 +171,7 @@
      {% endif %}
 {%- elif ghost_record_type == 'error' -%}
      {%- if datatype in ['TIMESTAMP_NTZ','TIMESTAMP'] %}{{ datavault4dbt.string_to_timestamp(timestamp_format, end_of_all_times) }} AS {{ alias }}
-     {%- elif datatype in ['STRING','VARCHAR'] %}'{{ error_value__STRING }}' AS {{ alias }}
+     {%- elif datatype in ['STRING', 'VARCHAR', 'TEXT'] %}'{{ error_value__STRING }}' AS {{ alias }}
      {%- elif datatype == 'CHAR' %}CAST('{{ error_value_alt__STRING }}' as {{ datatype }} ) as "{{ alias }}"
      {%- elif datatype.upper().startswith('VARCHAR(')  or datatype.upper().startswith('CHAR(') -%}
             {%- if col_size is not none -%}
